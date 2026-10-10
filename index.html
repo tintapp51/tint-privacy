@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TINT — Privacy Policy</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-dot-css@2.3.1/simple.min.css">
+  <style>
+    body { max-width: 780px; margin: 0 auto; padding: 2rem 1rem; }
+    header, footer { text-align: left; border: none; padding: 0; }
+    h1 { margin-bottom: 0.25rem; }
+    .meta { color: var(--text-light, #666); margin-bottom: 2rem; font-size: 0.95rem; }
+    hr { margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TINT Privacy Policy</h1>
+    <div class="meta">Last updated: 10 October 2026</div>
+  </header>
+
+  <main>
+    <p>TINT (&ldquo;the app&rdquo;) is developed by <strong>vidy</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). This policy explains what TINT collects, why we collect it, who can see it, and how you can delete it, in compliance with Google Play Developer Policies.</p>
+    <p>Questions or deletion requests? Contact us at: <a href="mailto:tintapp51@gmail.com">tintapp51@gmail.com</a>.</p>
+
+    <hr>
+
+    <h2>1. What TINT Collects</h2>
+    <h3>Account Information</h3>
+    <ul>
+      <li><strong>Email Sign-Up:</strong> If you sign up using email, we collect your email address. Your password is encrypted and managed directly by our authentication provider (Supabase Auth); it is never visible to us or stored in plaintext. You should never enter your email provider's password into TINT.</li>
+      <li><strong>Google Sign-In:</strong> If you sign in using Google, Google processes your authentication. TINT receives your Google email address, Google account ID, name, and profile picture URL. We never receive or access your Google password.</li>
+      <li><strong>Profile:</strong> Your chosen username and avatar.</li>
+      <li><strong>Security &amp; Authentication Records:</strong> Event timestamps, IP addresses, and device/browser user-agent details recorded by our login provider for account security and fraud prevention.</li>
+    </ul>
+
+    <h3>Setup, Goals &amp; Daily Activity</h3>
+    <ul>
+      <li><strong>Academic Goals:</strong> The exams you are preparing for and your daily focus goal. Custom exam names entered under &ldquo;Other&rdquo; remain stored locally on your phone and are not uploaded to our servers; only preset exam categories are linked to leaderboard rankings.</li>
+      <li><strong>Written Goals:</strong> The goal text and target completion date you write down during setup.</li>
+      <li><strong>Tasks &amp; History:</strong> Your task titles, day-by-day history of task names, the ratio of completed tasks against total tasks, and your daily consistency score.</li>
+      <li><strong>Focus Sessions:</strong> Session dates, start times, durations, session IDs, and cumulative focus-time totals for today, this week, and all time.</li>
+      <li><strong>Streaks &amp; Progress:</strong> Current streak, longest streak, last active date, and total completed tasks.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. 7 Day Lock In Challenge</h2>
+    <p>When you participate in a 7 Day Lock In challenge, TINT collects and stores:</p>
+    <ul>
+      <li><strong>Challenge Data:</strong> The challenge you join (solo or squad), the challenge code, and the start timestamp.</li>
+      <li><strong>Selected Blocked Apps:</strong> The specific names/package identifiers of the apps you choose to block.</li>
+      <li><strong>Participation Status:</strong> Whether you are actively participating or have left, when you joined or exited, and when your device last checked in with our server.</li>
+      <li><strong>Blocking Statistics:</strong> The number of times you attempted to open each selected blocked app (daily and per-app totals).</li>
+      <li><strong>Baseline Usage Data:</strong> For your selected blocked apps only, how many times you opened them and the cumulative duration of use during the 7 days prior to the challenge kickoff. This baseline is queried once at the start of the challenge to generate your comparative final report.</li>
+      <li><strong>Emergency Unlocks:</strong> The number of emergency unlocks used (each granting 5 minutes of access, up to twice per challenge).</li>
+    </ul>
+    <p>Your private challenge statistics—including attempt counts, 7-day baseline metrics, emergency unlock tallies, and your final progress report—are private and visible only to you.</p>
+
+    <hr>
+
+    <h2>3. App Blocking, Permissions &amp; Background Processing</h2>
+    <p>To deliver core app-blocking functionality and focus tracking, TINT uses the following Android permissions:</p>
+    <ul>
+      <li><strong>Usage Access (<code>PACKAGE_USAGE_STATS</code>):</strong> Allows TINT to identify which application is currently in the foreground to detect if a selected blocked app is launched.
+        <ul>
+          <li><em>Launcher Detection:</em> TINT queries Android to identify your phone's default home screen launcher so it can distinguish home screen navigation from target apps.</li>
+          <li><em>Privacy Limitation:</em> TINT does not collect, transmit, or log a complete list of all apps installed on your device, nor does it maintain a live log of every app you open.</li>
+        </ul>
+      </li>
+      <li><strong>Display Over Other Apps (<code>SYSTEM_ALERT_WINDOW</code>):</strong> Allows TINT to display its blocking screen over a restricted app when opened.</li>
+      <li><strong>Foreground Service &amp; Persistent Notification:</strong> Keeps app blocking active:
+        <ul>
+          <li>During a standard focus session, blocking runs for the duration of that session.</li>
+          <li>During a 7 Day Lock In, blocking runs continuously in the background for the full seven-day duration, even when TINT is not open on screen. A persistent notification remains visible in your notification drawer while active.</li>
+        </ul>
+      </li>
+      <li><strong>Run at Startup (<code>RECEIVE_BOOT_COMPLETED</code>):</strong> Restores an active challenge or scheduled session after your phone restarts. TINT also attempts to resume blocking if the Android OS terminates the background service.</li>
+      <li><strong>Notifications:</strong> Used strictly for local, on-device alerts (such as focus session completion alarms and scheduled challenge reminders).</li>
+      <li><strong>Internet Access:</strong> Used to synchronize your account, tasks, leaderboards, squad updates, and challenge data over secure channels.</li>
+    </ul>
+    <p><strong>Prominent In-App Disclosure:</strong> Before asking you to grant Usage Access or Overlay permissions, TINT displays a dedicated in-app screen explaining how continuous blocking operates, what data is processed, what stays on your phone, and what squad members can see. You must explicitly agree to proceed.</p>
+
+    <hr>
+
+    <h2>4. What Stays on Your Phone</h2>
+    <ul>
+      <li><strong>Real-Time Foreground Checking:</strong> Detection of the active foreground app is evaluated on-device in temporary memory. TINT does not log or transmit your real-time browsing or app navigation.</li>
+      <li><strong>Distraction Logs:</strong> During a normal focus session, the time spent away from TINT used to calculate your distraction metric stays on your phone.</li>
+      <li><strong>Local Settings:</strong> Challenge runtime states, local preferences, and custom exam titles remain stored locally on your device.</li>
+    </ul>
+
+    <hr>
+
+    <h2>5. Leaderboards, Friends &amp; Squad Visibility</h2>
+    <h3>Leaderboard &amp; Friends</h3>
+    <ul>
+      <li><strong>Public Information:</strong> Any signed-in TINT user can see your username, avatar, selected preset exams, streaks, total tasks completed, focus minutes (today, this week, and all time), and daily task completion ratios (e.g., 4/5 tasks completed). This applies to all accounts, including those created via the 7 Day Lock In.</li>
+      <li><strong>Private Information:</strong> Other users cannot see your email address, written personal goal, target date, individual task names, or detailed focus-session history.</li>
+      <li><strong>Friend Discovery:</strong> TINT stores friend requests you send or receive. Users can search for friends by entering an exact email address; your email address is never displayed in search results or public directories.</li>
+    </ul>
+
+    <h3>Squad Challenges</h3>
+    <ul>
+      <li><strong>Visible to Squad Members:</strong> Squad members can view your username, avatar, the specific apps you chose to block, your participation status (active/left), check-in timestamps, and join/exit dates.</li>
+      <li><strong>Hidden from Squad Members:</strong> Squad members cannot view your launch attempt tallies, baseline usage history, emergency unlock counts, or your private final report.</li>
+    </ul>
+
+    <hr>
+
+    <h2>6. How We Use and Share Information</h2>
+    <p>We use collected information solely to operate TINT features: accounts, task management, focus tracking, streaks, leaderboards, friend interactions, app blocking, and 7 Day Lock In analytics.</p>
+    <p>We do not sell, rent, or monetize your data. TINT contains no third-party advertising, commercial tracking SDKs, or third-party behavioral analytics tools. Data is processed exclusively by our infrastructure providers:</p>
+    <ul>
+      <li><strong>Supabase:</strong> Cloud database and authentication infrastructure. Data is stored on servers located in Seoul, South Korea.</li>
+      <li><strong>Google Identity Services:</strong> Facilitates Google Sign-In authentication.</li>
+      <li><strong>Expo Application Services (EAS):</strong> Delivers critical over-the-air application updates. Expo receives the device platform, app version, IP address, and an anonymous runtime installation ID to manage update delivery. These technical records contain no personal identifying details.</li>
+    </ul>
+
+    <hr>
+
+    <h2>7. Data Security &amp; Storage</h2>
+    <ul>
+      <li><strong>Encryption in Transit:</strong> All network communication between TINT, our servers, and integrated service endpoints is encrypted using HTTPS / TLS.</li>
+      <li><strong>Encryption at Rest:</strong> Database records are encrypted at rest and protected by Supabase Row Level Security (RLS) policies, restricting access to your private records to your authenticated account.</li>
+      <li><strong>Backups &amp; Logs:</strong> Our active hosting plan does not maintain automated database snapshots. Temporary disaster-recovery backups retained by infrastructure providers expire within 30 days. Authentication security logs are maintained temporarily according to standard provider security retention schedules.</li>
+    </ul>
+
+    <hr>
+
+    <h2>8. Account &amp; Data Deletion</h2>
+    <p>We keep your data only while your account remains active. You may delete your account and all associated data at any time.</p>
+
+    <h3>In the App</h3>
+    <ol>
+      <li>Go to <strong>Profile &rarr; Delete Account</strong> (or tap the deletion link at the bottom of an active challenge screen).</li>
+      <li>Deletion is immediate: your account, profile, tasks, focus records, streaks, friend requests, challenge memberships, and challenge statistics are permanently purged from our active database.</li>
+      <li>The app clears local data on your device, including selected blocking configurations.</li>
+    </ol>
+    <p><em>Squad Impact:</em> If you created a squad challenge that has already started, the challenge continues for remaining members after your deletion. If the squad lobby has not yet started, it closes upon deletion.</p>
+
+    <h3>Outside the App (Web Deletion Portal)</h3>
+    <p>In compliance with Google Play requirements, you may request full account and data deletion online without opening the app by visiting our web portal:</p>
+    <p><a href="delete.html"><strong>TINT Account &amp; Data Deletion Request Page</strong></a></p>
+    <p>You may also email <a href="mailto:tintapp51@gmail.com">tintapp51@gmail.com</a> from the address associated with your account with the subject line <em>&ldquo;Delete my TINT account&rdquo;</em>. Email requests are verified and processed within 7 business days.</p>
+
+    <hr>
+
+    <h2>9. Children’s Privacy</h2>
+    <p>TINT is designed for students aged 13 and older. We do not knowingly collect or maintain personal information from children under the age of 13. If we discover that an individual under 13 has created an account, we will delete the account and associated records immediately. If you believe a child under 13 is using TINT, contact us at <a href="mailto:tintapp51@gmail.com">tintapp51@gmail.com</a>.</p>
+
+    <hr>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy periodically. Any updates will be reflected on this page with a revised &ldquo;Last updated&rdquo; date.</p>
+
+    <hr>
+
+    <h2>11. Contact Us</h2>
+    <p>For questions regarding this policy, your data, or account deletion:</p>
+    <ul>
+      <li><strong>Developer:</strong> vidy</li>
+      <li><strong>Email:</strong> <a href="mailto:tintapp51@gmail.com">tintapp51@gmail.com</a></li>
+    </ul>
+  </main>
+</body>
+</html>
