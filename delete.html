@@ -7,54 +7,71 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-dot-css@2.3.1/simple.min.css">
   <style>
     body { max-width: 680px; margin: 0 auto; padding: 2rem 1rem; }
-    .card { background: var(--accent-bg, #f5f5f5); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border, #ddd); }
-    .btn { display: inline-block; background: #d9383a; color: #fff; padding: 0.65rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .card { background: var(--accent-bg, #f5f5f5); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border, #ddd); font-size: 0.95rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    label { font-weight: 600; margin-bottom: 0.25rem; display: block; }
+    input[type="email"], select, textarea { width: 100%; box-sizing: border-box; }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0.5rem 0; }
+    .checkbox-group input { margin-top: 0.25rem; }
+    .checkbox-group label { font-weight: normal; font-size: 0.95rem; }
+    button[type="submit"] { background: #d9383a; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; align-self: flex-start; }
+    button[type="submit"]:hover { background: #b82b2d; }
   </style>
 </head>
 <body>
   <header>
     <h1>Delete Your TINT Account &amp; Data</h1>
+    <p>Developer: <strong>vidy</strong> &bull; App: <strong>TINT</strong></p>
   </header>
 
   <main>
-    <p>This page allows you to request the permanent deletion of your TINT account and all associated personal data in compliance with Google Play Developer Policies.</p>
+    <p>Use this form to submit an account and data deletion request in compliance with Google Play Developer Policies. You do not need to have the app installed to submit this request.</p>
 
     <div class="card">
-      <h3>What data will be deleted?</h3>
+      <h3 style="margin-top:0;">What data will be permanently deleted?</h3>
       <ul>
-        <li>Your profile information (email address, username, avatar).</li>
-        <li>All task records, task history, and consistency scores.</li>
+        <li>Authentication credentials, email address, username, and avatar.</li>
+        <li>Tasks, consistency scores, and daily task histories.</li>
         <li>Focus sessions, timers, and streak milestones.</li>
-        <li>Challenge memberships, 7 Day Lock In attempt counts, and squad records.</li>
+        <li>Squad memberships and 7 Day Lock In challenge attempt statistics.</li>
       </ul>
-      <p><em>Note: Deletion from our primary database is permanent and cannot be undone.</em></p>
+      <p style="margin-bottom:0;"><em>Note: Deletion from our active production database is permanent and cannot be reversed.</em></p>
     </div>
 
-    <h2>Option 1: In-App Deletion (Immediate)</h2>
-    <p>If you have the TINT app installed on your device:</p>
-    <ol>
-      <li>Open TINT and navigate to <strong>Profile</strong>.</li>
-      <li>Tap <strong>Delete Account</strong>.</li>
-      <li>Confirm your choice. Your account and data are purged immediately.</li>
-    </ol>
+    <!-- Web3Forms handles the form submission directly to your inbox -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="c698d937-1d5e-41c4-b8ec-28116991b7ba">
+      <input type="hidden" name="subject" value="TINT: Account Deletion Request Submitted">
+      <input type="hidden" name="from_name" value="TINT Web Deletion Portal">
 
-    <hr>
+      <div>
+        <label for="email">Registered TINT Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="student@example.com" required>
+        <small>Enter the exact email used to sign in to TINT.</small>
+      </div>
 
-    <h2>Option 2: Web Deletion Request (Outside the App)</h2>
-    <p>If you do not have the app installed or cannot sign in, send an account deletion request directly to our developer team:</p>
-    <ol>
-      <li>Send an email to: <a href="mailto:tintapp51@gmail.com"><strong>tintapp51@gmail.com</strong></a></li>
-      <li>Subject line: <strong>Delete my TINT account</strong></li>
-      <li>Send the email from the <strong>same email address</strong> associated with your TINT account so we can verify your identity.</li>
-    </ol>
+      <div class="checkbox-group">
+        <input type="checkbox" id="confirm" name="confirm_deletion" required>
+        <label for="confirm">
+          I confirm that I want to permanently delete my TINT account and all associated personal data. I understand this action cannot be undone. *
+        </label>
+      </div>
 
-    <p style="margin-top: 1.5rem;">
-      <a class="btn" href="mailto:tintapp51@gmail.com?subject=Delete%20my%20TINT%20account&body=Please%20permanently%20delete%20my%20TINT%20account%20and%20all%20associated%20data.%0A%0ARegistered%20Email:%20">Click Here to Launch Pre-Filled Email</a>
-    </p>
+      <div>
+        <label for="reason">Reason for leaving (Optional)</label>
+        <select id="reason" name="reason">
+          <option value="finished_exams">Finished my target exams</option>
+          <option value="no_longer_needed">No longer using the app</option>
+          <option value="privacy_concerns">Privacy preferences</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
 
-    <p><small>Requests submitted via email are verified and executed within 7 business days.</small></p>
+      <button type="submit">Submit Deletion Request</button>
+    </form>
 
-    <hr>
+    <hr style="margin-top: 2rem;">
+    <p><small>Requests submitted via this form are verified and processed within 7 business days. You may also delete your account instantly from within the app via <strong>Profile &rarr; Delete Account</strong>.</small></p>
     <p><a href="index.html">&larr; Back to TINT Privacy Policy</a></p>
   </main>
 </body>
